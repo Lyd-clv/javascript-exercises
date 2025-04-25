@@ -1,34 +1,31 @@
-const repeatString = function(string, num) {
-    let result ="heyheyhey";
+// const repeatString = function(string, num) {
+//     let result ="heyheyhey"; // Hardcoded!❌
 
-    for (let i = 0; i < 3; i++) {
-        console.log(i);
-      }
-    return result;
+//     for (let i = 0; i < 3; i++) { // Schleife läuft immer 3x, nicht dynamisch ❌
+//         console.log(i); // Gibt nur Zahlen aus, kein Ergebnis ❌
+//       }
+//     return result; // Gibt immer "heyheyhey" zurück ❌
+// };
+
+
+
+
+// Code funktioniert (passed Test), ist aber nicht sauber.
+// Hier die saubere Lösung:
+
+const repeatString = function (word, times) {
+  if (times < 0) return "ERROR";
+  let string = "";
+  for (let i = 0; i < times; i++) {
+    string += word;
+  }
+  return string;
 };
+ 
+/* --> Funktionalität: Baut das Ergebnis durch Schleife auf
+--> Schleife: Läuft times-mal (dynamisch)
+--> Fehlerbehandlung: gibt "ERROR" bei negativen Zahlen zurück
+--> Rückgabe: hängt vom word und times ab */
 
 // Do not edit below this line
 module.exports = repeatString;
-
-
-/* 🔨 Schritt-für-Schritt-Anleitung:
-Parameter hinzufügen
-Deine Funktion braucht zwei Dinge:
-
-Den String, den du wiederholen willst
-
-Die Anzahl, wie oft du ihn wiederholen willst
-👉 Also z. B. repeatString(string, num)
-
-Ergebnis-Variable erstellen
-Eine leere Zeichenkette (let result = "";)
-→ Hier wird später alles zusammengesammelt.
-
-Schleife schreiben
-Eine for-Schleife, die num-mal durchläuft.
-Bei jedem Durchlauf:
-
-hängst du string an result an
-
-Ergebnis zurückgeben
-Nach der Schleife return result */
